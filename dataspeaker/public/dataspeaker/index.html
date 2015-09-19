@@ -1,0 +1,111 @@
+<!doctype html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <title>Weibo Data Speaker</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="/dataspeaker/lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="/dataspeaker/lib/flat-ui/dist/css/flat-ui.css" />
+    <link rel="stylesheet" href="/dataspeaker/lib/Font-Awesome/css/font-awesome.css" />
+    <!--<link rel="stylesheet" href="/bsm/styles/flat-ui.css">-->
+    <link rel="stylesheet" href="/dataspeaker/styles/admin.css">
+    <link rel="stylesheet" href="/dataspeaker/styles/dashboard.css">
+  </head>
+  <body ng-app="dataspeaker.gui" ng-controller="AdminController" ng-style="{'background-color': website.css.color}">
+    <nav class="navbar navbar-inverse" style="border-radius:0px !important">
+      <div class="container-fluid">
+
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">Data Speaker</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav navbar-right">
+            <li ng-if="website.layout.showRegisterItem"><a href="#/register">
+              <span class="glyphicon glyphicon-user"></span> Sign Up
+            </a></li>
+            <li ng-if="website.layout.showLoginItem"><a href="#/login">
+              <span class="glyphicon glyphicon-log-in"></span> Login
+            </a></li>
+            <li class="dropdown" ng-if="website.layout.showUserProfileMenu">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="">
+                <img style="margin-right:5px;height:25px;weight:25px" ng-src="{{website.user.avatar}}">
+                {{website.user.name}}
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="#/">Preference</a></li>
+                <li><a href="#/">My Setting</a></li>
+                <li><a ng-click="logout()">Logout</a></li> 
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div id="main-container">
+        <div >
+            <main ui-view>
+               <div class="admin-view" ng-view=""></div>
+            </main>
+        </div>
+    </div> 
+
+</div>
+
+  <script src="/dataspeaker/lib/jquery/dist/jquery.js"></script>
+  <script src="/dataspeaker/lib/angular/angular.js"></script>
+  <script src="/dataspeaker/lib/angular-resource/angular-resource.js"></script>
+  <script src="/dataspeaker/lib/angular-route/angular-route.js"></script>
+  <script src="/dataspeaker/lib/angular-touch/angular-touch.js"></script>
+  <script src="/dataspeaker/lib/angular-sanitize/angular-sanitize.js"></script>  
+  <script src="/dataspeaker/lib/angular-cache/dist/angular-cache.js"></script>
+  <script src="/dataspeaker/lib/bootstrap/dist/js/bootstrap.js"></script>
+  <script src="/dataspeaker/lib/eventEmitter/EventEmitter.js"></script>
+  <script src="/dataspeaker/lib/i18next/i18next.js"></script>
+  <script src="/dataspeaker/lib/ng-i18next/dist/ng-i18next.js"></script>
+
+  <script src="/dataspeaker/lib/masonry/dist/masonry.pkgd.js"></script>
+  <script src="/dataspeaker/lib/jquery-bridget/jquery.bridget.js"></script>
+  <script src="/dataspeaker/lib/imagesloaded/imagesloaded.pkgd.js"></script>
+  <script src="/dataspeaker/lib/angular-masonry/src/angular-masonry.js"></script>
+
+  <script src="/dataspeaker/lib/highcharts/js/highcharts.js"></script>
+  <script src="/dataspeaker/lib/highcharts/js/modules/data.js"></script>
+  <script src="/dataspeaker/lib/highcharts/js/modules/drilldown.js"></script>
+  <script src="/dataspeaker/lib/highcharts/js/modules/exporting.js"></script>
+
+  <script src="/dataspeaker/lib/highcharts/js/adapters/standalone-framework.js"></script>
+  <script src="/dataspeaker/lib/highcharts/js/modules/map.js"></script>
+  <script src="/dataspeaker/script/china.js"></script>
+
+  <script src="/dataspeaker/lib/highcharts-ng/dist/highcharts-ng.min.js"></script>
+
+  <!-- Resource -->
+  <script src="/dataspeaker/script/url.js"></script>
+  <script src="/dataspeaker/script/i18nextConfig.js"></script>
+
+  <!-- Module -->
+  <script src="/dataspeaker/script/app.js"></script>
+  <script src="/dataspeaker/script/bsmLogin.js"></script>
+  <script src="/dataspeaker/script/bsmProvider.js"></script>
+  <script src="/dataspeaker/script/bsmService.js"></script>
+
+  <!-- Service -->
+  <script src="/dataspeaker/script/services/weiboService.js"></script>
+  <script src="/dataspeaker/script/services/loginService.js"></script>
+  <script src="/dataspeaker/script/services/remoteProxyService.js"></script>
+  <script src="/dataspeaker/script/services/userService.js"></script>
+   <!-- Provider -->
+  <script src="/dataspeaker/script/services/urlProvider.js"></script>
+
+   <!-- Controller -->
+  <script src="/dataspeaker/script/controller/adminController.js"></script>
+  <script src="/dataspeaker/script/controller/auth/loginController.js"></script>
+  <script src="/dataspeaker/script/controller/dashboard/dashboardController.js"></script>
+
+   <!-- utilities -->
+  <script src="/dataspeaker/script/utilities/loginTemplate.js"></script>
+</html>

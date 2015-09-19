@@ -1,0 +1,124 @@
+.weibo_area{
+	width:80%;
+	margin: 0 auto;
+}
+
+.weibo_section{
+	background-color: #E7F3FA;
+	margin-top:20px;
+}
+
+.weibo_section header {
+    border-bottom: 0.2rem solid;
+    margin: 0px;
+    padding: 4px 0.5em 0.5rem;
+    font-size: 1.25em;
+    font-weight: 200;
+    color: white;
+    border-radius: 0px 0px 0px 0px;
+    line-height: 2rem;
+    background: #34495e;
+    text-rendering: optimizelegibility;
+}
+
+.weibo_section_area{
+	border: 2px solid !important; 
+	border-radius: 6px !important;
+	border-color: #006EAC !important;
+	background-color: #ffffff;
+	width:100%;
+	margin-bottom: 30px;
+}
+
+.container { width: auto; }
+
+.chart {
+    width: 90%;
+    height: 100%;
+    padding-left: 2em;
+}
+
+.list_weibo2 {
+    width: 850px;
+    background: #34495e;
+    margin: 0 0 0 0;
+    padding: 10px;
+    height: 85px;
+    color: #fff;
+    position: relative;
+    padding: 0 20px 0 120px;
+}
+
+.list_weibo2 p {
+    line-height: 15px;
+    margin: 0 0 10px;
+    font-size: 14px;
+}
+
+.yahei {
+    font-family: "Microsoft YaHei", 微软雅黑, "Microsoft JhengHei";
+}
+
+.listpicw {
+    width: 88px;
+    height: 80;
+    padding: 3px;
+    border: 1px solid #0A70A3;
+    background: #fff;
+    position: absolute;
+    border-radius: 120px;
+    left: 9px;
+    top: -10px;
+}
+
+.leftB {
+    float: left;
+}
+
+span.T7 {
+    color: #D8DFEA;
+}
+
+.Tqblue {
+    color: #D8DFEA;
+}
+
+.rightB {
+    float: right;
+}
+
+a.yznextb {
+    width: 84px;
+    height: 29px;
+    display: block;
+    background-position: -600px 0px;
+    text-align: center;
+    line-height: 29px;
+    color: #666666;
+    text-decoration: none;
+}
+.listpicw img {
+    border-radius: 120px;
+}
+a img {
+    border: 0px;
+}
+span.Tgreen {
+    color: #67A54B;
+}
+span.Tred {
+    color: #FF0000;
+}
+
+a {
+    color: #336FC1;
+    text-decoration: none;
+}
+
+.nopadding{
+    padding: 0 !important;
+}
+.nomargin{
+    margin: 0 !important;
+}
+

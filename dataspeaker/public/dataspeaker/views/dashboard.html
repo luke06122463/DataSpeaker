@@ -1,0 +1,197 @@
+<div class="weibo_area" >
+	<div class="list_weibo2 yahei" style="border-bottom:1px dotted #6DB0D2; width:100%; margin-top:30px;">
+		<div class="listpicw" style="left: 9px;top: -10px;z-index:100;">
+			<a href="http://weibo.com/{{userProfile.id}}" target="_blank">
+				<img ng-src="{{userProfile.avatar}}" width="80" height="80">
+			</a>
+		</div>
+		<div class="leftB" style="padding:8px 0 0 0;">
+			<p>
+				<span style="font-size:18px;">
+					<strong>
+						<a style="text-decoration: none;color: #FFF;" href="http://weibo.com/{{userProfile.id}}" target="_blank">{{userProfile.name}}</a>
+					</strong>
+					<span class=""></span>
+				</span>
+			</p>
+			<p>{{userProfile.location}}&nbsp;&nbsp;<span class="T7">&nbsp;&nbsp;|&nbsp;&nbsp;</span><span class="Tqblue">关注</span>&nbsp;{{userProfile.friendsCnt}}<span class="T7">&nbsp;&nbsp;|&nbsp;&nbsp;</span><span class="Tqblue">粉丝</span> {{userProfile.followersCnt}}<span class="T7">&nbsp;&nbsp;|&nbsp;&nbsp;</span><span class="Tqblue">微博</span>&nbsp;{{userProfile.messagesCnt}}</p>
+			<p>{{userProfile.description}}</p>
+		</div>
+		<div class="rightB" style="z-index:110;margin:30px 0 0 0;">
+			<a href="javascript:void(0);" style="cursor: default; margin:0 5px 0 0;" class="yznextb leftB">
+				<span class="Tred">&nbsp;&nbsp;&nbsp;未添加</span>
+			</a>
+		</div>
+	</div>
+</div>
+
+
+<div class="weibo_area" >
+	<div class="weibo_section">
+		<header>
+			<div>Followers Analysis</div>
+		</header>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6">
+					<div class="weibo_section_area" style="display:block;margin-top:30px" >
+					<!--
+						<div style="height:50px">
+							<div style="font-size:14pt;margin-left:5px;display:inline-block;">Activity</div>
+		                </div>
+		            -->
+		                <!-- the beginning of detail datalist -->
+						<div style="width:94%;position: relative;left: 25px;">
+		                    <div class="jumbotron nopadding nomargin" style="background-color: #ffffff;">
+								<div class="container">
+								  	<div class="row">
+							            <highchart class="chart"  config="genderChartConfig"></highchart>
+								  	</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-6">
+					<div class="weibo_section_area" style="display:block;margin-top:30px" >
+		                <!-- the beginning of detail datalist -->
+						<div style="width:94%;position: relative;left: 25px;">
+		                    <div class="jumbotron nopadding nomargin" style="background-color: #ffffff;">
+								<div class="container">
+								  	<div class="row">
+							            <highchart class="chart"  config="frequencyChartConfig"></highchart>
+								  	</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+			<div class="row">
+				<div class="col-lg-6">
+					<div class="weibo_section_area" style="display:block;margin-top:30px" >
+						<div style="width:94%;position: relative;left: 25px;">
+		                    <div class="jumbotron nopadding nomargin" style="background-color: #ffffff;">
+								<div class="container">
+								  	<div class="row">
+							            <highchart class="chart"  config="catogeryChartConfig"></highchart>
+								  	</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-6">
+					<div class="weibo_section_area" style="display:block;margin-top:30px" >
+		                <!-- the beginning of detail datalist -->
+						<div style="width:94%;position: relative;left: 25px;">
+		                    <div class="jumbotron nopadding nomargin" style="background-color: #ffffff;">
+								<div class="container">
+								  	<div class="row">
+							            <highchart class="chart"  config="locationChartConfig"></highchart>
+								  	</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div class="weibo_area" >
+	<div class="weibo_section">
+		<header>
+			<div>Message Analysis</div>
+		</header>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6">
+					<div class="weibo_section_area" style="display:block;margin-top:30px" >
+						<!-- Title -->
+						<div style="height:50px">
+							<div style="font-size:14pt;margin-left:5px;display:inline-block;">Activity</div>
+		                </div>
+		                <!-- the beginning of detail datalist -->
+						<div style="width:94%;position: relative;left: 25px;">
+		                    <div class="jumbotron nopadding" style="background-color: #ffffff;">
+								<div class="container">
+								  	<div class="row">
+								  	</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-6">
+					<div class="weibo_section_area" style="display:block;margin-top:30px" >
+						<!-- Title -->
+						<div style="height:50px">
+							<div style="font-size:14pt;margin-left:5px;display:inline-block;">Activity</div>
+		                </div>
+		                <!-- the beginning of detail datalist -->
+						<div style="width:94%;position: relative;left: 25px;">
+		                    <div class="jumbotron nopadding" style="background-color: #ffffff;">
+								<div class="container">
+								  	<div class="row">
+								  	</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="weibo_area" >
+	<div class="weibo_section">
+		<header>
+			<div>Operation Index & Tendency</div>
+		</header>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6">
+					<div class="weibo_section_area" style="display:block;margin-top:30px" >
+						<!-- Title -->
+						<div style="height:50px">
+							<div style="font-size:14pt;margin-left:5px;display:inline-block;">Activity</div>
+		                </div>
+		                <!-- the beginning of detail datalist -->
+						<div style="width:94%;position: relative;left: 25px;">
+		                    <div class="jumbotron nopadding" style="background-color: #ffffff;">
+								<div class="container">
+								  	<div class="row">
+								  	</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-6">
+					<div class="weibo_section_area" style="display:block;margin-top:30px" >
+						<!-- Title -->
+						<div style="height:50px">
+							<div style="font-size:14pt;margin-left:5px;display:inline-block;">Activity</div>
+		                </div>
+		                <!-- the beginning of detail datalist -->
+						<div style="width:94%;position: relative;left: 25px;">
+		                    <div class="jumbotron nopadding" style="background-color: #ffffff;">
+								<div class="container">
+								  	<div class="row">
+								  		HighChart say hell to you
+								  	</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,747 @@
+{
+    "layout": {
+        "adminMenu": "Administration",
+        "searchMenu": "Search",
+        "preferenceMenu": "Preference",
+        "settingMenu": "My Settings",
+        "aboutUsMenu": "About Us",
+        "logoutMenu": "Logout",
+        "dpsearchAdmin": "Dpsearch Admin",
+        "indexAdmin": "Index Admin",
+        "adminChildMenu": "Manage DPSearch",
+        "adminChildKeywords": "Manage operation",
+        "searchChildMenu": "Document Search",
+        "searchChildKeywords": "Search operation"
+    },
+
+    "error":
+    {
+        "page"  :   {
+            "404"   :   {
+                "title"         :   "Not found",
+                "description"   :   "Sorry, but the page you were trying to view does not exist.",
+                "reason"        :   "It looks like this was the result of either:",
+                "subReason1"    :   "a mistyped address",
+                "subReason2"    :   "an out-of-date link"
+            },
+            "500"   :   {
+                "title"         :   "Internal server error",
+                "description"   :   "We're sorry, but something went wrong.",
+                "reason"        :   "If you are the application owner check the logs for more information."
+            }       
+        }                                   
+    },
+
+    "units":
+    {
+        "bytes"         :       "Bytes",
+        "gb"            :       "GB",
+        "kb"            :       "KB",
+        "mb"            :       "MB",
+        "tb"            :       "TB",
+        "pb"            :       "PB"
+     },
+    "common": {
+        "cancel": "Cancel",
+        "ok": "Ok",
+        "message": "Message"
+    },
+
+    "message": {
+        "failedLogin": "Failed Login.",
+        "successLogin": "Successful Login.",
+        "authorizedUsersOnly": "Authorized users only"
+    },
+
+    "login": {
+        "title": "Login",
+        "userNameHolder": "User Name",
+        "passwordHolder": "Password",
+        "signIn": "Sign In",
+        "loadingTip": "Logging in...",
+        "failedLogin": "Failed to log in",
+        "usernameEmptyErrorTip": "Username is required",
+        "passwordEmptyErrorTip": "Password is required",
+        "permissionDenyErrorTip": "User has no permission to access",
+        "authenticationExpiredErrorTip": "Authentication has been expired"
+    },
+
+    "dashboard": {
+        "title": "Dashboard",
+        "backButton": "Back",
+        "dashboardHealthTitle": "Health",
+        "dashboardHealthNormal": "Normal",
+        "dashboardHealthWarning": "Warning",
+        "dashboardHealthError": "Error",
+        "backupServerTotalServer": "Total Servers",
+        "backupServerHealthTitle": "Source Servers Health",
+        "noBackupServerHint": "Source servers: No server at this time.",
+        "backupServerHealthTitle": "Servers",
+        "backupServerHealthName": "Source Servers",
+        "backupServerHealthPlatform": "Platform",
+        "backupServerHealthVersion": "Version",
+        "dpWorkerTotalServer": "Total Workers",
+        "dpWorkerHealthTitle": "DP Search Workers Health",
+        "noDpWorkerHint": "Worker nodes: No worker at this time.",
+        "dpWorkerHealthTitle": "Workers",
+        "dpWorkerHealthName": "Worker Servers",
+        "esClusterTotalServer": "Total Clusters",
+        "esClusterHealthTitle": "Elasticsearch Health",
+        "noEsClusterHint": "Elasticsearch Clusters: No cluster at this time.",
+        "esClusterHealthTitle": "Clusters",
+        "esClusterHealthName": "Cluster Nodes",
+        "indexTotalServer": "Total Indexes",
+        "indexHealthTitle": "Index Health",
+        "noIndexHint": "Indexes: No index at this time.",
+        "indexHealthTitle": "Indexes",
+        "indexHealthName": "Index Nodes",
+        "collectionSectionTitle": "Collections",
+        "collectionHealthTitle": "Scheduled Collections",
+        "collectionHealthIndex": "Index",
+        "notificationSectionTitle": "Notices",
+        "notificationHealthTitle": "Notification",
+        "notificationHealthDate": "Date",
+        "noNotificationHint": "No notification found.",
+        "notificationSelectAll": "Select all",
+        "notificationUnselectAll": "Unselect all",
+        "serverStatusIsUpdating": "Server status is being updated now. ",
+        "serverStatusRefresh": "Refresh server status.",
+        "serverStatusUnresponsive": "One or more source servers are unresponsive.",
+        "serverIsUnavailable": "No server is available. ",
+        "moreButton": "More.."
+    },
+
+    "sources": {
+        "title": "Sources",
+        "list" : {
+            "noSourceString":"No source found.",
+            "address": "Address",
+            "version": "Version",
+            "registeredAgents": "Registered Agents",
+            "sourceTimeZone":"Source Time Zone",
+            "blackoutTime":"Blackout Time",
+            "convertedTime":"Converted Time",
+            "fetchingMore":"Fetching from server...",
+            "blackoutEnable": "Blackout",
+            "connectionLimitationEnable":"Connection Limits",
+            "on": "ON",
+            "off": "OFF",
+            "enable": "Enabled",
+            "disable": "Disabled",
+            "indexingConnections": "Indexing",
+            "restoreConnections":"Restoring",
+            "downloadConnections": "Downloading"
+        },
+        "tooltip":{
+            "status":{
+                "ok":"OK.",
+                "initializing":"Initializing.",
+                "initFailed":"Initializing failed.",
+                "agentsFailedRegistered":"Some agents failed to register.",
+                "connectionExceeding":"Connection exceeding limitation.",
+                "blackoutRestricted":"Blackout restricted.",
+                "disconnected":"Disconnected.",
+                "unknown":"Unknow status."
+            }
+
+        },
+        "form" : {
+            "header":{
+                "newSource":"Add a source",
+                "updateSource":"Update a source."
+            },
+            "name":"Name",
+            "platform":"Platform",
+            "port":"Port",
+            "userId": "User ID",
+            "password": "Password",
+            "timezone": "Time Zone",
+            "blackoutWindow":"Blackout Window",
+            "enable":"Enable",
+            "from": "From",
+            "to":"To",
+            "fciOnly":"Only apply to full-content indexing.",
+            "cancel":"Cancel",
+            "connectionLimitation": "Connection Limitation",
+            "maxIndexConnection": "Max Indexing Connections",
+            "maxRestoreConnection": "Max Restore Connections",
+            "maxDownloadConnection": "Max Download Connections"
+        },
+        "labelBox":{
+            "submitAdd": "Add",
+            "submitUpdate": "Update",
+            "formHeaderAdd": "Add Source",
+            "formHeaderUpdate": "Update Source"
+        },
+        "placeholder":{
+            "name":"Type source name here",
+            "userid":"Type user id here",
+            "password": "Type password here",
+            "typeNumber": "Type a number."
+        },
+        "validation":{
+            "name": "Name is required.",
+            "userid": "User ID is required.",
+            "password": "Password is required.",
+            "port":"Port should be a number between 0 and 65535",
+            "connectionLimitation": "Should be a number between 1 and 2147483647"
+        },
+        "message":{
+            "label":{
+                "ok":"OK",
+                "cancel":"Cancel",
+                "confirm":"Confirm"
+            },
+            "headline":{
+                "error":"Error",
+                "confirm": "Confirm"
+            },
+            "connectionError": "Connection error.",
+            "deleteConfirm": "Selected item(s) will be permanently deleted. Type DELETE to confirm:",
+            "timeWindowInvalid": "Time window is invalid: end time should be different from start time."
+        },
+        "taskbar":{
+            "add":"Add",
+            "update":"Update",
+            "remove":"Remove",
+            "refresh":"Refresh"
+        },
+        "toolbar":{
+            "sorter":{
+                "name":"Name",
+                "platform":"Platform"
+            },
+            "search":{
+                "placeholder":"Find by name..."
+            },
+            "countLabel":"Sources"
+        },
+        "loadingBar": {
+            "wait": "Please wait...",
+            "waitRetrievingSource": "Retrieving sources...",
+            "waitConnectingSource": "Connecting to source..."
+        }
+    },
+
+    "roles": {
+        "title": "Roles",
+        "noContent": "None",
+        "dpAdmins" : {
+            "noSourceString":"There is no source, please add.",
+            "title": "DPAdmins Search Group:",
+            "pageDescription": "Members of this group manage application-level configuration",
+            "email": "Email:",
+            "type": "Type:",
+            "description": "Description:"
+        },
+        "indexAdmins" : {
+            "noSourceString":"There is no source, please add.",
+            "title": "Manage Index Admins",
+            "pageDescription": "Index admins can manage index-level configuration",
+            "email": "Email:",
+            "type": "Type:",
+            "description": "Description:",
+            "metadataOnly": "Metadata Index Only",
+            "metadataAndFci": "Metadata and Full Content Index"
+        }
+    },
+
+    "index": {
+        "title": "Indexes",
+        "taskBarItemLabel": {
+            "addIndex": "Add Index",
+            "editIndex": "Edit Index",
+            "deleteIndex": "Delete Index",
+            "refresh": "Refresh"
+        },
+        "list": {
+           "noIndexes":"There is no index, please add.",
+           "manageIndexes": "Manage Indexes",
+           "indexStatusHealthy": "Healthy",
+           "indexStatusWarning": "Warning",
+           "indexStatusError": "Error",
+           "size": "Size",
+           "itemCount": "Item count",
+           "createdTime": "Created",
+           "lastModifiedTime": "Last modified"
+        },
+        "create": {
+            "indexName": "Index name",
+            "indexNameRequired": "Required",
+            "indexNameMaxLength": "Index name length is limited to 128 characters.",
+            "indexNameLetterDigit": "The index name must comprise of letters, digits, underscore(_), or hyphen(-).",
+            "indexNamePlaceholder": "type here",
+            "indexDescription": "Description",
+            "indexDescriptionMaxLength": "Index description length is limited to 256 characters.",
+            "indexDescriptionPlaceholder": "type here",
+            "indexAnalyzer": "Analyzer",
+            "indexAnalyzerAlert": "Please select an analyzer.",
+            "indexAnalyzerLabelPlaceholder": "Choose ...",
+            "indexAnalyzerNoneLabel": "None",
+            "indexCreatedTime": "Created",
+            "indexLastModified": "Last Modified",
+            "indexUserGroup": "User/group",
+            "indexUserGroupMail": "Mail",
+            "indexUserGroupDescription": "Description",
+            "indexUserGroupRole": "Role",
+            "indexUserGroupRoleReadOnly": "Admin - Read only",
+            "indexUserGroupRoleAllAccess": "Admin - All access",
+            "cancel": "Cancel",
+            "updateButton": "Update",
+            "saveButton": "Save",
+            "newIndex": "New Index"
+        },
+        "message":{
+            "label":{
+                "ok":"OK",
+                "cancel":"Cancel",
+                "confirm":"Confirm"
+            },
+            "headline":{
+                "error":"Error",
+                "confirm": "Confirm"
+            },
+            "deleteConfirm": "If you delete this index, the content inside it will be permanently lost. Please confirm you want to delete it by typing in DELETE ."
+        },
+        "indexFetchMore": "fetching more things"
+    },
+
+    "userpicker": {
+        "userOptions": {
+            "labelPlaceholder": "Choose ...",
+            "noneLabel": "None",
+            "userLabel": "Users",
+            "groupLabel": "Groups",
+            "userGroupLabel": "Users or Groups"
+        },
+        "dialog": {
+            "label": {
+                "name": "Name",
+                "mail": "Mail",
+                "description": "Description",
+                "find": "Find"
+            },
+            "userNamePlaceHolder": "type here"
+        },
+        
+        "message":{
+            "label":{
+                "ok":"OK",
+                "cancel":"Cancel",
+                "confirm":"Confirm",
+                "maximize":"Maximize"
+            },
+            "headline":{
+                "error":"Error",
+                "confirm": "Confirm",
+                "selectUser": "Select user"
+            }
+        },
+        "fetchMore": "fetching more things"
+    },
+
+    "collection": {
+        "title": "Collections",
+        "loadingLabel" : "Retrieving data, please wait...",
+        "savingLabel" : "Saving data, please wait...",
+        "activityList": {
+            "title": "Activity List",
+            "metadata": "Meta Data Index",
+            "fci": "Full Content Index",
+            "restore": "Restore / Download",
+            "monitor": "System Monitor",
+            "search": "Search",
+            "incomplete" : "Incomplete",
+            "pending": "Pending",
+            "active": "Active",
+            "inactive": "Inactive",
+            "finished": "Finished",
+            "expired": "Expired",
+            "index": "Index",
+            "schedule" : "Schedule",
+            "nextrun" : "Next Run",
+            "asap": "ASAP",
+            "schedule_string_one_day": "Every day at {{start_time}}",
+            "schedule_string_several_days": "Every {{frequence}} days at {{start_time}}",
+            "schedule_string_one_week": "Every week on {{week_day}} at {{start_time}}",
+            "schedule_string_several_weeks": "Every {{frequence}} weeks on {{week_day}} at {{start_time}}",
+            "schedul_string_sunday": "Sun",
+            "schedul_string_monday": "Mon",
+            "schedul_string_tuesday": "Tue",
+            "schedul_string_wednesday": "Wed",
+            "schedul_string_thursday": "Thu",
+            "schedul_string_friday": "Fri",
+            "schedul_string_saturday": "Sat",
+            "toolBar": {
+                "all": "All",
+                "incomplete" : "Incomplete      ",
+                "pending": "Pending",
+                "active": "Active",
+                "inactive": "In Active",
+                "finished": "Finished",
+                "expired": "Expired",
+                "countLabel": "collection(s)",
+                "sort": {
+                    "nextrun": "Next Run",
+                    "name": "Name",
+                    "index": "Index"
+                }
+            },
+            "taskbar": {
+                "add": "Add",
+                "edit": "Edit",
+                "delete": "Delete",
+                "disable": "Disable",
+                "enable": "Enable",
+                "runnow": "Run Now",
+                "selectAll": "Select All",
+                "unall": "Unselect All",
+                "refresh": "Refresh",
+                "filter": "Filter"
+            },
+            "filterField": {
+                "name" : "Name",
+                "status" : "Status",
+                "apply" : "Apply"
+            }
+        },
+        "buttons" :{
+            "ok": "OK",
+            "back": "Back",
+            "saveandnext": "Save & Next",
+            "prev": "Previou",
+            "nope": "Cancel"
+            },
+        "activityGuide": {
+            "selectIndex": "Select Index",
+            "sources": "Sources",
+            "scope": "Scope",
+            "schedule": "Schedule",
+            "prev": "Back",
+            "next": "Save & Next"
+        },
+        "activityInfo": {
+            "activityInforHead": "Activity Information",
+            "name" : "Name",
+            "description": "Description",
+            "index": "Index",
+            "specType": "Specify information to index",
+            "metadataOnly" : "Document Metadata only",
+            "fci": "Full content, including metadata and text",
+            "impact": "impact",
+            "notes":" I have read and accept the {{impact}} that Full Content Indexing might have on backup servers and attached storage devices.",
+            "impact_notes_desc": "Indexing full content requires that the content be temporarily restored \n from backup storage to the DPSearch worker node(s).  \n This may have an impact on other backup activities.",
+            "calculate_notes_desc":        "You may click the {{Calculate}} button below to estimate the maximum amount of content to be restored based on the current activity settings.  This may take some time to complete.",
+            "total_size_info":             "Backups for the selected clients currently include a total of {{total_size}} of content.  Up to this amount of content may need to be temporarily restored, although unchanged files that exist in multiple backups will not be restored.",
+            "ok":                          "OK",
+            "caculateLoading": "Caculating size, it maybe spent much time.",
+            "caculate": "Caculate",
+            "ok": "OK"
+        },
+        "activitySource": {
+            "specify": "Specify Date",
+            "before": "Before",
+            "after": "After",
+            "between": "Between",
+            "all": "All",
+            "allFiles": "Index files in all backup sets",
+            "selectAll": "Select All",
+            "backupsetshead": "Choose Backup Sets for Select Client(s)",
+            "mode": "Mode",
+            "desc": "Select specific backup sets for a given period",
+            "date": "Date",
+            "backupservertitle": "Backup Servers",
+            "backupclienttitle":"Backup Clients",
+            "selectedclientstitle": "Selected Sources to Index",
+            "separator": "separated by semicolons",
+            "refreshclient" : "Refresh will clear all items you selected! Are you sure to continue?",
+            "servername": "Source Name",
+            "name": "Name",
+            "domain": "Domain",
+            "apply": "Apply",
+            "sourcePickerHeader": "Source",
+            "backupsetHeader": "Set Backup Sets",
+            "confirmClearSelected": "Are you sure to clear all sources you selected?",
+            "refresh": "Refresh",
+            "clear": "Clear",
+            "addselect": "Add to Selected",
+            "filter": "Filter",
+            "remove": "Remove",
+            
+            "taskbar": {
+                "filter": "Filter",
+                "add": "Add",
+                "remove": "Remove",
+                "all": "All",
+                "backup": "Set BackupSets",
+                "caculate": "Caculate Size"                
+            },
+            "toolbar" : {
+                "countLabel": "entities",
+                "sort": {
+                    "name": "Name",
+                    "domain": "Domain",
+                    "os": "OS",
+                    "servername": "Server name"
+                }
+                
+            }
+        },
+            "activityScope": {
+                "head": "Specify which documents to index",
+                "countFilter": "Content Filter",
+                "indexAll": "Index all documents (*.*)",
+                "indexOnly": "Index only the following documents",
+                "extraType": "Exclude File Type",
+                "fileType": "File Type",
+                "date": "Date",
+                "allFiles": "Index files in all backup sets",
+                "separator": "separated by semicolons"
+
+            },
+            "activitySchedule": {
+                "startTimeLabelPlaceholder": "Choose ...",
+                "startTimeNoneLabel": "None",
+                "recurrenceTypeLabelPlaceholder": "Choose ...",
+                "recurrenceTypeNoneLabel": "None",
+                "head": "Specify when to index the selected content",
+                "recurrencePatternLabel": "Recurrence pattern",
+                "recurrenceEvery": "Every",
+                "recurrenceDay": "Day(s)",
+                "recurrenceWeek": "Week(s)",
+                "recurrenceSunday": "Sunday",
+                "recurrenceMonday": "Monday",
+                "recurrenceTuesday": "Tuesday",
+                "recurrenceWednesday": "Wednesday",
+                "recurrenceThursday": "Thursday",
+                "recurrenceFriday": "Friday",
+                "recurrenceSaturday": "Saturday",
+                "startTime": "Start time",
+                "startDate": "Start date",
+                "duration": "Duration",
+                "runUntilCompletion": "Run until completion",
+                "noEndDate": "No end date",
+                "endBy": "End by",
+                "notMoreThan": "Not more than",
+                "hours": "hours",
+                "rangeOfOccurence": "Range of occurence"
+            }
+    },
+
+    "job": {
+        "title": "Jobs",
+        "toolBar":{
+            "countLabel": "job(s)",
+            "all": "All",
+            "metadata": "Meta Data",
+            "fci": "Full Content Index",
+            "restore": "Restore",
+            "system": "System",
+            "longquery": "Long Query",
+            "nextrun": "Next Run",
+            "starttime": "Start Time",
+            "endtime": "End Time",
+            "name": "Name",
+            "index": "Index",
+            "type": "Type",
+            "status": "Status",
+            "starttime": "Start Time"
+        },
+        "taskBar" : {
+            "filter": "Filter",
+            "refresh": "Refresh",
+            "all" : "Select All",
+            "unall" : "Unselect All",
+            "stop" : "Stop",
+            "toggle" : "Toggle",
+            "switchOn" : "Hide System Jobs",
+            "switchOff" : "Show System Jobs"
+            },
+        "jobList": {
+            "head": "Job List",
+            "error": "Something error to get jobs!",
+            "triggerriedby": "Triggered by",
+            "start" : "Start",
+            "end": "End",
+            "processed" : "Processed",
+            "successed" : "Successed",
+            "failed" : "Failed",
+            "duplicate" : "Duplicate",
+            "updated" : "updated",
+            "spawning" : "Spawning", 
+            "running" : "Running",
+            "stopping": "Stopping",
+            "success": "Success",
+            "failed": "Failed",
+            "stopped": "Stopped",
+            "timeout": "Timeout",
+            "pending": "Pending",
+            "jobId": "Current Job ID : ",
+            "filterField": {
+                "activityName": "Activity Name",
+                "status": "Status",
+                "type": "Type",
+                "trigger": "Triggered By",
+                "apply": "Apply"
+            }            
+        }
+    },
+
+    "system": {
+        "title": "System",
+        "systemInforHead" : "System Information",
+        "refresh" : "Refresh",
+        "worker": {
+            "adminweb": "Admin Web",
+            "adminapi": "Admin API",
+            "searchweb": "Search Web",
+            "searchapi": "Search API",
+            "workernode": "Worker Node",
+            "components": "Components",
+            "component": "Component",
+            "version": "Current Version",
+            "cpu": "CPU",
+            "memory": "Memory",
+            "disk": "Disk Space",
+            "system": "System",
+            "current": "Current",
+            "threshold": "Threshold",
+            "area": "Area",
+            "nodename": "Worker Nodes"
+        },
+        "status": {
+            "active" : "Active",
+            "pausing" : "Pausing",
+            "paused" : "Paused",
+            "deleted": "Retired"
+        },
+        "agent": {
+            "ok": "OK",
+            "down": "Down",
+            "registering": "Registering",
+            "unregistered": "Unregistered",
+            "agent": "Agent",
+            "agents": "Agents",
+            "status": "Status"
+        },
+        "cis": {
+            "nodename": "CIS Nodes",
+            "cpu": "CPU Usage",
+            "memory": "OS Memory Used",
+            "jvm": "JVM Heap Used",
+            "current": "Current",
+            "threshold": "Threshold",
+            "area": "Area"
+        }
+    },
+
+    "option": {
+        "title": "Option",
+        "searchOptionTitle": "Search Options",
+        "searchOptionMaxHits":  "Max hits to restore",
+        "maxHitsCannotEmpty": "Max Hits cannot be empty",
+        "maxHitsNoLessThan": "Max Hits cannot be less than",
+        "maxHitsNoMoreThan": "Max Hits cannot exceed",
+        "maxHitsMustBeInteger": "Max Hits cannot be characters",
+        "timeoutCannotEmpty": "Session timeout cannot be empty",
+        "timeoutNoLessThan": "Session timeout cannot be less than",
+        "timeoutNoMoreThan": "Session timeout cannot exceed",
+        "timeoutMustBeInteger": "Session timeout cannot be characters",
+        "sessionOptionTitle": "Session Options",
+        "sessionOptionTimeout": "Session timeout",
+        "notificationOptionTitle": "Email Notification Options",
+        "notificationOptionEmail": "Email notifications",
+        "ldapOptionTitle": "LDAP Options",
+        "ldapOptionHost": "Host",
+        "ldapOptionPort":  "Port",
+        "ldapOptionDn":  "Base DN",
+        "ldapOptionAdminUser":  "Admin User",
+        "ldapOptionPassword":  "Password",
+        "indexingOptionTitle": "Index Options",
+        "indexingOptionFiletypes":  "Filetypes to exclude from FCI",
+        "indexingOptionIndexReplicaNumber": "Number of replicas",
+        "indexingOptionReplicaConfirmation": "replica confirmation",
+        "indexingOptionReplicaRiskDesc": "Inappropriate replica setting may result in the unstability of CIS. Please consult the DPSearch administrator for the appropriate setting if you are not familiar with CIS.",
+        "indexingOptionReplicaExcessive": "The replica exceeds its limitation",
+        "indexingOptionApplyReplica": "Apply Replica settings to existing indexes",
+        "hostCannotEmpty": "Host cannot be empty",
+        "portCannotEmpty": "Port cannot be empty",
+        "portIsnotInteger": "Port is invalid",
+        "baseDnCannotEmpty": "Base DN cannot be empty",
+        "userNameCannotEmpty": "User Name cannot be empty",
+        "passwordCannotEmpty": "Password cannot be empty",
+        "ldapOptionDialogTitle": "Ldap Option",
+        "ldapOptionValidateSuccess": "The LDAP settings validated successfully.",
+        "ldapOptionValidateFailure": "Failed to validate LDAP settings.  Please check your input and make sure the host is accessible.",
+        "smtpOptionDialogTitle": "Smtp Option",
+        "smtpOptionValidateSuccess": "The SMTP settings validated successfully.",
+        "smtpOptionValidateFailure": "Failed to validate SMTP settings.  Please check your input and make sure the host is accessible.",
+        "indexOptionDialogTitle": "Index Option",
+        "searchOptionDialogTitle": "Search Option",
+        "sessionOptionDialogTitle": "Session Option",
+        "optionValidateButton": "validate",
+        "optionValidate": "Validating..",
+        "optionSubmint": "submit",
+        "optionReset": "reset",
+        "notificationSmtpOptionHost": "SMTP Host",
+        "notificationSmtpOptionPort": "Port",
+        "notificationSmtpOptionUser": "SMTP User",
+        "notificationSmtpOptionPassword": "Password",
+        "notificationSmtpOptionDialogTitle": "Email Notification Option",
+        "indexingOptionReplicaRiskDesc": "This will apply the selected number of replicas to all existing indexes. Setting the number to zero will remove any existing replicas for these indexes.",
+        "ldapSettingSaveFailure":  "Fail to store the setting into backend."
+    },
+    "task": {
+        "title"          : "Tasks",
+        "loading"        : "Retrieving tasks, please wait ...",
+        "toolbar"        : {
+            "countLabel" : "task(s)",
+            "startTime"  : "Start Time",
+            "endTime"    : "End Time",
+            "status"     : "Status"
+        },
+        "dataList": {
+            "loading"    : "Retrieving more tasks ...",
+            "error"      : "Something error to get tasks!",
+            "start"      : "Start",
+            "end"        : "End",
+            "scan"       : "Scanned",
+            "processed"  : "Processed",
+            "succeeded"  : "Succeeded",
+            "failed"     : "Failed",
+            "duplicate"  : "Duplicate",
+            "updated"    : "Updated",
+            "running"    : "Running",
+            "stopping"   : "Stopping",
+            "success"    : "Success",
+            "failed"     : "Failed",
+            "stopped"    : "Stopped",
+            "timeout"    : "Timeout",
+            "pending"    : "Pending",
+            "filterField": {
+                "status" : "Status"
+            }
+        }
+    },
+    "status" : {
+        "-1": "incomplete",
+        "0": "pending",
+        "1": "active",
+        "2": "inactive",
+        "3": "finished",
+        "4": "expired",
+        "5": "spawning",
+        "6": "running",
+        "7": "stopping",
+        "8": "success",
+        "9": "failed",
+        "10": "stopped",
+        "11": "timeout",
+        "12": "suspending",
+        "13": "suspended",
+        "14": "resuming",
+        "15": "blackout pending",
+        "16": "suspend pending",
+        "unknown": "unknown"
+    }
+}
