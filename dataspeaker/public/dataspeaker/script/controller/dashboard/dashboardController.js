@@ -33,10 +33,14 @@ angular.module('dataspeaker.gui').controller('DashboardController', [
 		$scope.genderChartConfig = angular.copy($scope.pieChartConfig);
 		$scope.frequencyChartConfig = angular.copy($scope.pieChartConfig);
 		$scope.catogeryChartConfig = angular.copy($scope.pieChartConfig);
+		$scope.allStatusCatogeryChartConfig = angular.copy($scope.pieChartConfig);
+		$scope.originalStatusCatogeryChartConfig = angular.copy($scope.pieChartConfig);
+
 		$scope.locationChartConfig = angular.copy($scope.mapChartConfig);
         $scope.locationChartConfig.series[0].allAreas = true;
 
         $scope.followersChartConfig = angular.copy($scope.columnChartConfig)
+        $scope.registerChartConfig = angular.copy($scope.columnChartConfig)
 
         $scope.timelineChartConfig = angular.copy($scope.lineChartConfig)
 	        
@@ -54,7 +58,11 @@ angular.module('dataspeaker.gui').controller('DashboardController', [
 	        		$scope.initLocationAnalysis(data.data.location);
 	        		$scope.initCatogeryAnalysis(data.data.catogery);
 	        		$scope.initFollowersAnalysis(data.data.followers.follower_amount);
+	        		$scope.initRegisterTimeAnalysis(data.data.register_time);
+
 	        		$scope.initTimelineAnalysis(data.data.all_timeline, data.data.original_timeline);
+	        		$scope.initAllStatusCatogeryAnalysis(data.data.all_catogery);
+	        		$scope.initOriginalStatusCatogeryAnalysis(data.data.original_catogery);
     			}
     		)
     		.error(
@@ -70,7 +78,7 @@ angular.module('dataspeaker.gui').controller('DashboardController', [
 				{name: "male", y: result.male_cnt},
 				{name: "unknown", y: result.unknown_cnt}
             ];
-		}
+		};
 
 		$scope.initFrequencyAnalysis = function(result) {
     		$scope.frequencyChartConfig.title.text = 'Frequency';
@@ -81,7 +89,7 @@ angular.module('dataspeaker.gui').controller('DashboardController', [
 				{name: "diving", y: result.no_active}
             ];
 					
-		}
+		};
 
 		$scope.initCatogeryAnalysis = function(result) {
     		$scope.catogeryChartConfig.title.text = 'Authentication';
@@ -92,7 +100,7 @@ angular.module('dataspeaker.gui').controller('DashboardController', [
 				{name: "Zombie", y: result.z_cnt}
             ];
 					
-		}
+		};
 
 		$scope.initLocationAnalysis = function(result){
 			$scope.locationChartConfig.series[0].data=result;
@@ -102,16 +110,42 @@ angular.module('dataspeaker.gui').controller('DashboardController', [
     		$scope.followersChartConfig.title.text = 'Followers';
 			$scope.followersChartConfig.series[0].data = result;
 					
-		}
+		};
+
+		$scope.initRegisterTimeAnalysis = function(result) {
+    		$scope.registerChartConfig.title.text = 'Register Time';
+			$scope.registerChartConfig.series[0].data = result;
+			$scope.registerChartConfig.options.xAxis.categories = [
+				'2006', '2007', '2008', '2009', '2010', 
+				'2011', '2012', '2013', '2014', '2015'
+			];
+					
+		};
 
 		$scope.initTimelineAnalysis = function(allTimeline, originalTimeline){
     		$scope.timelineChartConfig.title.text = 'Timeline';
-    		console.log("initTimelineAnalysis");
-    		console.log(allTimeline);
-    		console.log(originalTimeline);
     		$scope.timelineChartConfig.series[0].data = allTimeline.timeline;
     		$scope.timelineChartConfig.series[1].data = originalTimeline.timeline;
+		};
 
+		$scope.initAllStatusCatogeryAnalysis = function(result) {
+    		$scope.allStatusCatogeryChartConfig.title.text = 'Catogery(all)';
+			$scope.allStatusCatogeryChartConfig.series[0].data = [
+            	{name: "picture", y: result.picture},
+				{name: "video", y: result.video},
+				{name: "music", y: result.music},
+				{name: "others", y: result.others}
+            ];
+		};
+
+		$scope.initOriginalStatusCatogeryAnalysis = function(result) {
+    		$scope.originalStatusCatogeryChartConfig.title.text = 'Catogery(original)';
+			$scope.originalStatusCatogeryChartConfig.series[0].data = [
+            	{name: "picture", y: result.picture},
+				{name: "video", y: result.video},
+				{name: "music", y: result.music},
+				{name: "others", y: result.others}
+            ];
 		}
 
 	    console.log("getting out of the DashboardController...");

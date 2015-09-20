@@ -145,13 +145,13 @@ var chartConfig = {
 	                    align: 'right'
 	                },
 		            title:{
-		            	text: 'Followers Interval'
+		            	text: ''
 		            }
 		        },
 		        yAxis: {
 		            min: 0,
 		            title: {
-		                text: 'My Followers'
+		                text: ''
 		            }
 		        }
 	        },

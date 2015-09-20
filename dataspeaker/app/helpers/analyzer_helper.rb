@@ -7,7 +7,7 @@ module AnalyzerHelper
       @statuses_model = statuses_model
     end
 
-    def pre_analyze
+    def collect
       steps = {
         :step_1 => true,
         :step_2 => false,
@@ -33,6 +33,8 @@ module AnalyzerHelper
         :step_5 => false,
         :step_6 => false,
         :step_7 => false,
+        :step_8 => false,
+        :step_9 => false,
         :result => false
       }
       followers = @user_model.get_followers_key_index()
@@ -54,32 +56,52 @@ module AnalyzerHelper
       end
       if steps[:step_7]
         # classify followers to four groups: V users, Micro-weibo Master, Genuine User, Zombie
-        steps[:step_7] = catogery_analyze(followers)
-        steps[:result] = steps[:step_7]
+        steps[:step_8] = catogery_analyze(followers)
+      end
+      if steps[:step_8]
+        # classify followers to four groups: V users, Micro-weibo Master, Genuine User, Zombie
+        steps[:step_9] = register_time_analyze(followers)
+        steps[:result] = steps[:step_9]
       end
       return steps[:result]
     end
 
     def extra_analyze
       steps = {
-        :step_7 => true,
-        :step_8 => false,
         :step_9 => false,
+        :step_10 => false,
+        :step_11 => true,
+        :step_12 => false,
+        :step_13 => false,
         :result => false
       }
-      if steps[:step_7]
+      if steps[:step_9]
         # analyse the timeline for all statuses
         all_statuses = @statuses_model.get_statuses_key_index(0)
-        steps[:step_8] = all_timeline_analyze(all_statuses)
+        steps[:step_10] = all_timeline_analyze(all_statuses)
       end
-      if steps[:step_8]
+
+      if steps[:step_10]
         # analyse the timelien for all original statuses
         original_statuses = @statuses_model.get_statuses_key_index(1)
-        steps[:step_9] = original_timeline_analyze(original_statuses)
-        steps[:result] = steps[:step_9]
+        steps[:step_11] = original_timeline_analyze(original_statuses)
+      end
+
+      if steps[:step_11]
+        # analyse the timelien for all original statuses
+        all_statuses = @statuses_model.get_statuses_key_index(0)
+        steps[:step_12] = all_statuses_catogery_analyze(all_statuses)
+      end
+
+      if steps[:step_12]
+        # analyse the timelien for all original statuses
+        original_statuses = @statuses_model.get_statuses_key_index(1)
+        steps[:step_13] = original_statuses_catogery_analyze(original_statuses)
+        steps[:result] = steps[:step_13]
       end
 
       return steps[:result]
+      #return steps[:result]
     end
 
     # analyze how many followers are male and how many are female
@@ -192,12 +214,30 @@ module AnalyzerHelper
       return @user_model.set_result({:field=>"catogery", :result=>catogery})
     end
 
+    # statistic which my followers registered to weibo respectively
+    def register_time_analyze(users=nil)
+      # from 2006 to 2015
+      register_interval = Array.new(10, 0)
+      users.each do |user|
+        # get the created_at of weibo account
+        account_created_at = user[:created_at]
+        # convert the date string to utc
+        account_utc = UtilityHelper::Utility.convert_to_utc(account_created_at)
+        index = account_utc.year - 2006
+        register_interval[index] = register_interval[index] + 1
+      end
+      puts "the result of register_time_analyze is: #{register_interval.to_s}"
+      return @user_model.set_result({:field=>"register_time", :result=>register_interval})
+    end
+
+    # analyze the timeline for all statustes
     def all_timeline_analyze(statuses)
       timeline = timeline_analyze(statuses)
       puts "the result of all_timeline_analyze is: #{timeline.to_s}"
       return @user_model.set_result({:field=>"all_timeline", :result=>timeline})
     end
 
+    # analyze the timeline for all original statustes
     def original_timeline_analyze(statuses)
       timeline = timeline_analyze(statuses)
       puts "the result of original_timeline_analyze is: #{timeline.to_s}"
@@ -219,6 +259,40 @@ module AnalyzerHelper
       end
       return {:base=>account_utc.year, :timeline=>timeline}
     end
+
+    # analyze the catogery for all statustes
+    def all_statuses_catogery_analyze(statuses)
+      catogery = statuses_catogery_analyze(statuses)
+      puts "the result of all_statuses_catogery_analyze is: #{catogery.to_s}"
+      return @user_model.set_result({:field=>"all_catogery", :result=>catogery})
+    end
+
+    # analyze the catogery for all statustes
+    def original_statuses_catogery_analyze(statuses)
+      catogery = statuses_catogery_analyze(statuses)
+      puts "the result of original_statuses_catogery_analyze is: #{catogery.to_s}"
+      return @user_model.set_result({:field=>"original_catogery", :result=>catogery})
+    end
+ 
+    def statuses_catogery_analyze(statuses)
+      # [pic, video, music, others]
+      catogery = Array.new(4, 0) 
+      catogery_active =  
+      statuses.each do |status|
+        if(@statuses_model.is_picture_statuses(status[:id]))
+          catogery[0] = catogery[0] + 1
+        elsif(@statuses_model.is_video_statuses(status[:id]))
+          catogery[1] = catogery[1] + 1
+        elsif(@statuses_model.is_music_statuses(status[:id]))
+          catogery[2] = catogery[2] + 1
+        else
+          catogery[3] = catogery[3] + 1
+        end
+      end
+
+      return {:picture=>catogery[0], :video=>catogery[1], :music=>catogery[2], :others=>catogery[3]}
+    end
+
 
   end
 end

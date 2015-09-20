@@ -33,8 +33,9 @@ class UsersController < ApplicationController
     location_model = Location.new(session)
     statuses_model = Statuses.new(session)
     analyzer = AnalyzerHelper::Analyzer.new(users_model, location_model, statuses_model)
-    result = analyzer.pre_analyze()
-    result = analyzer.analyze()
+    if(analyzer.collect())
+      result = analyzer.analyze()
+    end
     render :json=> {:data=> result}
   end
 

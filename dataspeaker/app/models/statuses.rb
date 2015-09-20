@@ -16,6 +16,48 @@ class Statuses
     @luke06122463_index = Mongo::Client.new([ DBURL ], :database => (DBPREFIX+@luke06122463_id.to_s))
   end
 
+  # check whether the type of the target status is picture
+  def is_picture_statuses(status_id)
+    flag = false
+    begin
+      result = @db_index[:statuses_2].find(:id => status_id).count
+      if(result > 0)
+        flag = true
+      end
+    rescue
+      puts "exception happens in is_picture_statuses: #{e.to_s}"
+    end
+    return flag
+  end
+
+  # check whether the type of the target status is video
+  def is_video_statuses(status_id)
+    flag = false
+    begin
+      result = @db_index[:statuses_3].find(:id => status_id).count
+      if(result > 0)
+        flag = true
+      end
+    rescue
+      puts "exception happens in is_video_statuses: #{e.to_s}"
+    end
+    return flag
+  end
+  
+  # check whether the type of the target status is music
+  def is_music_statuses(status_id)
+    flag = false
+    begin
+      result = @db_index[:statuses_4].find(:id => status_id).count
+      if(result > 0)
+        flag = true
+      end
+    rescue
+      puts "exception happens in is_music_statuses: #{e.to_s}"
+    end
+    return flag
+  end
+
   # 0 for all, 1 for original, 2 for picture, 3 for video, 4 for music
   def get_statuses_key_index(feature=0)
     statuses = Array.new
