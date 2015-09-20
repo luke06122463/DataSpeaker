@@ -7,6 +7,9 @@ module AnalyzerHelper
       @statuses_model = statuses_model
     end
 
+    # data collection
+    # => collect friends 
+    # => collect followers
     def collect
       steps = {
         :step_1 => true,
@@ -26,6 +29,12 @@ module AnalyzerHelper
 
     # Break the analyze operation into several steps so that we can eailsy figure out which step fails if there is any exception happens. 
     # Each step will store its result into mongodb and each step will only be excuted by once even if user retry
+    # => analyze gender distribution
+    # => analyze statuses frequency
+    # => analyze how many followers my each follower has
+    # => analyze follower's location
+    # => classify followers
+    # => analyze register time
     def analyze
       steps = {
         :step_3 => true,
@@ -66,6 +75,7 @@ module AnalyzerHelper
       return steps[:result]
     end
 
+    # analyze statuses
     def extra_analyze
       steps = {
         :step_9 => false,

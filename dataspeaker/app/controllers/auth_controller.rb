@@ -41,6 +41,7 @@ class AuthController < ApplicationController
     redirect_to client.authorize_url
   end
 
+  # callback function for weiboauth2
   def callback
     #access_token = '79fd8c3c2e70b1b1e97df9b24ec98dc0'
     client = WeiboOAuth2::Client.new

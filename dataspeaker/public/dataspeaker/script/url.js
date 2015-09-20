@@ -45,6 +45,13 @@ var url_map = {
 				"action":"get"
 			}, 
 			"faked":{"url":"/admin/sample/result.json", "action":"get"}
+		},
+		"startAnalysis":{
+			"product":{
+				"url":"users/analyze",
+				"action":"get"
+			}, 
+			"faked":{"url":"/admin/sample/result.json", "action":"get"}
 		}
 	}
 };

@@ -49,8 +49,8 @@ Rails.application.configure do
 
   ## v4 is stable version
   DBURL = "127.0.0.1:27017"
-  DBPREFIX = "v4_"
-  DBMASTER = "v4_master"
+  DBPREFIX = "v8_"
+  DBMASTER = "v8_master"
   #DBURL = "127.0.0.1:27017"
   #DBPREFIX = "v3_"
   #DBMASTER = "v3_master"
