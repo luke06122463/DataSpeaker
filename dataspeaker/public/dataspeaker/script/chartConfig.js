@@ -165,6 +165,76 @@ var chartConfig = {
 	        },
 	        loading: false
 		}
+	},
+	line:{
+		standard:{
+		  options: {
+		    chart: {
+		      type: "line"
+		    },
+		    plotOptions: {
+		      series: {
+		        stacking: ""
+		      }
+		    },
+		    xAxis: {
+	            categories: [
+	                '2010 Q1',
+	                'Q2',
+	                'Q3',
+	                'Q4',
+	                '2011 Q1',
+	                'Q2',
+	                'Q3',
+	                'Q4',
+	                '2012 Q1',
+	                'Q2',
+	                'Q3',
+	                'Q4',
+	                '2013 Q1',
+	                'Q2',
+	                'Q3',
+	                'Q4',
+	                '2014 Q1',
+	                'Q2',
+	                'Q3',
+	                'Q4',
+	                '2015 Q1',
+	                'Q2',
+	                'Q3',
+	                'Q4'
+	            ],
+                labels: {
+                    rotation: -30,
+                    align: 'right'
+                },
+	            title:{
+	            	text: 'Quarter'
+	            }
+	        }
+		  },
+		  series: [
+		   {
+		      data: [],
+		      id: "s1",
+		      name: "Status"
+		    },
+		    {
+		      data: [],
+		      id: "s2",
+		      name: "Original Status"
+		    }
+		  ],
+		  title: {
+		    text: "Hello"
+		  },
+		  credits: {
+		    enabled: false
+		    },
+		  loading: false,
+		  size: {},
+		  useHighStocks: false
+		}
 	}
 
 };

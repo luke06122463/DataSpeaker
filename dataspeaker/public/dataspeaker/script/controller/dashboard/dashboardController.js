@@ -27,6 +27,8 @@ angular.module('dataspeaker.gui').controller('DashboardController', [
 		$scope.pieChartConfig = CHART_CONIFG_DICT.pie.standard;
 		$scope.mapChartConfig = CHART_CONIFG_DICT.map.customized;
 		$scope.columnChartConfig = CHART_CONIFG_DICT.column.customized;
+		$scope.lineChartConfig = CHART_CONIFG_DICT.line.standard;
+
 
 		$scope.genderChartConfig = angular.copy($scope.pieChartConfig);
 		$scope.frequencyChartConfig = angular.copy($scope.pieChartConfig);
@@ -35,6 +37,8 @@ angular.module('dataspeaker.gui').controller('DashboardController', [
         $scope.locationChartConfig.series[0].allAreas = true;
 
         $scope.followersChartConfig = angular.copy($scope.columnChartConfig)
+
+        $scope.timelineChartConfig = angular.copy($scope.lineChartConfig)
 	        
 		//$scope.locationChartConfig = {};
 
@@ -50,6 +54,7 @@ angular.module('dataspeaker.gui').controller('DashboardController', [
 	        		$scope.initLocationAnalysis(data.data.location);
 	        		$scope.initCatogeryAnalysis(data.data.catogery);
 	        		$scope.initFollowersAnalysis(data.data.followers.follower_amount);
+	        		$scope.initTimelineAnalysis(data.data.all_timeline, data.data.original_timeline);
     			}
     		)
     		.error(
@@ -98,7 +103,17 @@ angular.module('dataspeaker.gui').controller('DashboardController', [
 			$scope.followersChartConfig.series[0].data = result;
 					
 		}
-		
+
+		$scope.initTimelineAnalysis = function(allTimeline, originalTimeline){
+    		$scope.timelineChartConfig.title.text = 'Timeline';
+    		console.log("initTimelineAnalysis");
+    		console.log(allTimeline);
+    		console.log(originalTimeline);
+    		$scope.timelineChartConfig.series[0].data = allTimeline.timeline;
+    		$scope.timelineChartConfig.series[1].data = originalTimeline.timeline;
+
+		}
+
 	    console.log("getting out of the DashboardController...");
 	}
 ]);
