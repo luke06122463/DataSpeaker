@@ -53,6 +53,7 @@ angular
     USER_LOGIN: 'login.userLogin',
     USER_LOGOUT: 'login.userLogout'
   })
+  .constant('CHART_CONIFG_DICT',chartConfig)
   .run([
     '$rootScope', 
     'UserService', 

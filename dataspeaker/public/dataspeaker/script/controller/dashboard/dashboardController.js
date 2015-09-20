@@ -6,7 +6,8 @@ angular.module('dataspeaker.gui').controller('DashboardController', [
 	'RemoteUrl', 
 	'UserService',
 	'WeiboService',
-	function($scope, remoteProxyService, remoteUrlProvider, userService, weiboService){
+	'CHART_CONIFG_DICT',
+	function($scope, remoteProxyService, remoteUrlProvider, userService, weiboService, CHART_CONIFG_DICT){
 		console.log("start into DashboardController....");
 		var user = userService.getUser().weiboUser;
 		//user personal information
@@ -21,153 +22,18 @@ angular.module('dataspeaker.gui').controller('DashboardController', [
 			location: user.location
 		}
 		// set the default value for each chart
-		$scope.chartConfig = {
-	        options: {
-	            chart: {
-	                type: 'pie'
-	            },
-	            tooltip: {
-					pointFormat: '<b>{point.y} ({point.percentage:.1f}%)</b>'
-				},
-	        	plotOptions: {
-					pie: {
-						//allowPointSelect: true,
-						cursor: 'pointer',
-						dataLabels: {
-							distance: -30,
-			                color: 'white',
-							enabled: true,
-							style: {
-		                        color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
-		                    },
-			                connectorColor: 'silver'
-						},
-						showInLegend: true
-					}
-			  	}
-	        },
-       
-	        series: [{
-	            data: []
-	        }],
-	        title: {
-	    		text: 'Gender'
-	        },
+		$scope.pieChartConfig = CHART_CONIFG_DICT.pie.standard;
+		$scope.mapChartConfig = CHART_CONIFG_DICT.map.customized;
+		$scope.columnChartConfig = CHART_CONIFG_DICT.column.customized;
 
-	        loading: false
-		};
-		$scope.genderChartConfig = angular.copy($scope.chartConfig);
-		$scope.frequencyChartConfig = angular.copy($scope.chartConfig);
-		$scope.catogeryChartConfig = angular.copy($scope.chartConfig);
-		$scope.locationChartConfig = {
-	        options: {
-	            legend: {
-	                enabled: false
-	            },
-	            plotOptions: {
-	                map: {
-	                    mapData: Highcharts.maps['cn-with-city'],
-	                    joinBy: ['name']
-	                }
-	            },
-	        },
-	        chartType: 'map',
-	        title: {
-	            text: 'Location'
-	        },
-	        series: [{
-	             // Basic China map
-	            data: [],
-	            cursor:'pointer',
-	            dataLabels: {
-	                enabled: true,
-	                format: '{point.name}',
-	                style: {
-	                    fontSize: '8px'
-	                }
-	            },
-	            tooltip: {
-	                enabled: true,
-	                headerFormat: '',
-	                pointFormat: '{point.name}: <b>{point.value}</b>'
-	            }
-	        }]
-	       
-	    };
+		$scope.genderChartConfig = angular.copy($scope.pieChartConfig);
+		$scope.frequencyChartConfig = angular.copy($scope.pieChartConfig);
+		$scope.catogeryChartConfig = angular.copy($scope.pieChartConfig);
+		$scope.locationChartConfig = angular.copy($scope.mapChartConfig);
         $scope.locationChartConfig.series[0].allAreas = true;
 
-        $scope.followersChartConfig = {
-	        options: {
-	           chart: {
-					type: 'column',
-					zoomType: 'xy',										
-					plotBackgroundColor: null,
-					plotBorderWidth: null,
-					plotShadow: false
-				},
-				legend: {
-					enabled: false
-				},
-				tooltip: {
-					 formatter: function() {
-	        			return  this.x + ' <br> <b>'+ this.series.name +':' + this.y + '</b>';
-	    				}
-				},			
-				plotOptions: {
-					 column: {
-	                    pointPadding: 0.2,
-	                    borderWidth: 0,
-				        allowPointSelect: true,
-						cursor: 'pointer',
-						dataLabels: {
-							distance: -30,
-			                color: 'white',
-							enabled: true,
-							style: {
-		                        color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
-		                    },
-		                connectorColor: 'silver'
-						},
-						showInLegend: true
-	                }
-				},
-				xAxis: {
-		            categories: [
-		                '0KB-100KB',
-		                '100KB-1M',
-		                '1M-10M',
-		                '10M-100M',
-		                '>100M'
-		            ]
-		        },
-		        yAxis: {
-		            min: 0,
-		            title: {
-		                text: ''
-		            }
-		        }
-	        },
-	        //end options
-	        series: [{
-				type: 'column',
-				name: 'Count',  // TODO: need I18n text here
-				data: srcData.results,
-				point: {
-					events: {
-						click: function (event) {
-							scope.showChart = false;
-							scope.$emit('search:fileSize', this.id);
-						}
-					}
-				}
-			}],
-
-	        title: {
-	            text: title
-	        },
-
-	        loading: false
-		};
+        $scope.followersChartConfig = angular.copy($scope.columnChartConfig)
+	        
 		//$scope.locationChartConfig = {};
 
 
@@ -181,6 +47,7 @@ angular.module('dataspeaker.gui').controller('DashboardController', [
 	        		$scope.initFrequencyAnalysis(data.data.frequency);
 	        		$scope.initLocationAnalysis(data.data.location);
 	        		$scope.initCatogeryAnalysis(data.data.catogery);
+	        		$scope.initFollowersAnalysis(data.data.followers.follower_amount);
     			}
     		)
     		.error(
@@ -223,6 +90,12 @@ angular.module('dataspeaker.gui').controller('DashboardController', [
 		$scope.initLocationAnalysis = function(result){
 			$scope.locationChartConfig.series[0].data=result;
 		};
+
+		$scope.initFollowersAnalysis = function(result) {
+    		$scope.followersChartConfig.title.text = 'Followers';
+			$scope.followersChartConfig.series[0].data = result;
+					
+		}
 		
 	    console.log("getting out of the DashboardController...");
 	}

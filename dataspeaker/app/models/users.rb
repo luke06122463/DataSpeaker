@@ -202,7 +202,7 @@ class Users
   def get_result
     results = {}
     begin
-      @db_index[:result_1].find().each do |result|
+      @db_index[:result].find().each do |result|
         results[result["field"]] = result["result"]
       end
     rescue => e
