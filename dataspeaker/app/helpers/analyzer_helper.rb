@@ -1,9 +1,10 @@
 module AnalyzerHelper
   class Analyzer
 
-    def initialize(user_model=nil, location_model=nil)
+    def initialize(user_model=nil, location_model=nil, statuses_model=nil)
       @user_model = user_model
       @location_model = location_model
+      @statuses_model = statuses_model
     end
 
     def pre_analyze
@@ -14,10 +15,10 @@ module AnalyzerHelper
         :result => false
       }
       if steps[:step_1]
-        steps[:step_2] = @users_model.set_user_friends()
+        steps[:step_2] = @user_model.set_user_friends()
       end
       if steps[:step_2]
-        steps[:step_3] = @users_model.set_user_followers()
+        steps[:step_3] = @user_model.set_user_followers()
         steps[:result] = steps[:step_3]
       end
       return steps[:result]
@@ -56,6 +57,28 @@ module AnalyzerHelper
         steps[:step_7] = catogery_analyze(followers)
         steps[:result] = steps[:step_7]
       end
+      return steps[:result]
+    end
+
+    def extra_analyze
+      steps = {
+        :step_7 => true,
+        :step_8 => false,
+        :step_9 => false,
+        :result => false
+      }
+      if steps[:step_7]
+        # analyse the timeline for all statuses
+        all_statuses = @statuses_model.get_statuses_key_index(0)
+        steps[:step_8] = all_timeline_analyze(all_statuses)
+      end
+      if steps[:step_8]
+        # analyse the timelien for all original statuses
+        original_statuses = @statuses_model.get_statuses_key_index(1)
+        steps[:step_9] = original_timeline_analyze(original_statuses)
+        steps[:result] = steps[:step_9]
+      end
+
       return steps[:result]
     end
 
@@ -167,6 +190,34 @@ module AnalyzerHelper
       catogery = {:v_cnt=> v_cnt, :m_cnt=> m_cnt, :z_cnt=> z_cnt, :g_cnt=> g_cnt}
       puts "the result of catogery_analyze is: #{catogery.to_s}"
       return @user_model.set_result({:field=>"catogery", :result=>catogery})
+    end
+
+    def all_timeline_analyze(statuses)
+      timeline = timeline_analyze(statuses)
+      puts "the result of all_timeline_analyze is: #{timeline.to_s}"
+      return @user_model.set_result({:field=>"all_timeline", :result=>timeline})
+    end
+
+    def original_timeline_analyze(statuses)
+      timeline = timeline_analyze(statuses)
+      puts "the result of original_timeline_analyze is: #{timeline.to_s}"
+      return @user_model.set_result({:field=>"original_timeline", :result=>timeline})
+    end
+
+    def timeline_analyze(statuses)
+      # get the created_at of weibo account
+      account_created_at = @user_model.get_current_user_info()["created_at"]
+      # convert the date string to utc
+      account_utc = UtilityHelper::Utility.convert_to_utc(account_created_at)
+      # calculte how many quarter should be displayed on the dashboard
+      quarter_num = UtilityHelper::Utility.calcute_quarter_num(account_utc.year)
+      timeline = Array.new(quarter_num, 0)
+      statuses.each do |status|
+        day_diff = UtilityHelper::Utility.calculate_day_off(status[:created_at],account_utc.year)
+        quarter_index = (day_diff/90).to_i
+        timeline[quarter_index] = timeline[quarter_index] + 1
+      end
+      return {:base=>account_utc.year, :timeline=>timeline}
     end
 
   end

@@ -52,7 +52,7 @@ angular.module('dataspeaker.gui').controller('AdminController', [
 		        		.success(
 		        			function(data){
 				        		console.log("AdminController:: succeed to get user information");
-		            			userService.setUser(true, data.info);
+		            			userService.setUser(true, data.info, data.status);
 		            			console.log(data);
 		            			// inform AngularJS to draw the page
 		            			$rootScope.$broadcast(AUTH_EVENTS.LOGIN_SUCCESS, userService.getUser());
@@ -65,9 +65,6 @@ angular.module('dataspeaker.gui').controller('AdminController', [
 					            $location.path('/login');
 		        			}
 		        		);
-		            /*userService.setUser(true, data.login_data);
-		            // inform AngularJS to draw the page
-		            $rootScope.$broadcast(AUTH_EVENTS.LOGIN_SUCCESS, userService.getUser());*/
 		        }
 	            //$location.path('/option');
 	        }else{

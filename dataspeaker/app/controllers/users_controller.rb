@@ -31,7 +31,9 @@ class UsersController < ApplicationController
   def analyze
     users_model = Users.new(session)
     location_model = Location.new(session)
-    analyzer = AnalyzerHelper::Analyzer.new(users_model,location_model)
+    statuses_model = Statuses.new(session)
+    analyzer = AnalyzerHelper::Analyzer.new(users_model, location_model, statuses_model)
+    result = analyzer.pre_analyze()
     result = analyzer.analyze()
     render :json=> {:data=> result}
   end
@@ -48,10 +50,24 @@ class UsersController < ApplicationController
     render :json=> {:data=>user_info}
   end
 
+  #workaround. do not expose this api to user.
+  def statuses
+    statuses_model = Statuses.new(session)
+    statuses_model.set_all_statuses()
+    statuses_model.set_original_statuses()
+    statuses_model.set_picture_statuses()
+    statuses_model.set_video_statuses()
+    result = statuses_model.set_music_statuses()
+    render :json=>{:data=> result}
+  end
+
   def test
-    tmp = {:a=>1, :b=>2}
-    tmp.delete(:a)
-    render :json=>{:data=> tmp}
+    users_model = Users.new(session)
+    location_model = Location.new(session)
+    statuses_model = Statuses.new(session)
+    analyzer = AnalyzerHelper::Analyzer.new(users_model, location_model, statuses_model)
+    result = analyzer.extra_analyze()
+    render :json=>{:data=>result}
   end
 
 end

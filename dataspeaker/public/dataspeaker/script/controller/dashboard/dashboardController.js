@@ -10,6 +10,8 @@ angular.module('dataspeaker.gui').controller('DashboardController', [
 	function($scope, remoteProxyService, remoteUrlProvider, userService, weiboService, CHART_CONIFG_DICT){
 		console.log("start into DashboardController....");
 		var user = userService.getUser().weiboUser;
+		$scope.hasAnalyzed = ((userService.getStatus() > 0) ? true: false);
+		console.log($scope.processStatus);
 		//user personal information
 		$scope.userProfile = {
 			name: user.name,

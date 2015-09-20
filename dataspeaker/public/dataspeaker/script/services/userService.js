@@ -9,6 +9,7 @@ angular.module('dataspeaker.login').provider('UserService', [
         userId: undefined,
         userName: '',
         avatar: '',
+        status: 0,
         weiboUser: undefined
       };
     this.$get = [
@@ -19,13 +20,14 @@ angular.module('dataspeaker.login').provider('UserService', [
           getUser: function () {
             return user;
           },
-          setUser: function (isLoggedIn, userObj) {
+          setUser: function (isLoggedIn, userObj, status) {
             user.isLoggedIn = isLoggedIn;
             if(isLoggedIn){
               user.isInitialized = isLoggedIn;
               user.userId = userObj.id;
               user.userName = userObj.screen_name;
               user.avatar = userObj.profile_image_url;
+              user.status = status;
               user.weiboUser = userObj;
             }
           },
@@ -37,6 +39,9 @@ angular.module('dataspeaker.login').provider('UserService', [
           },
           getUserRole: function () {
             return user.role;
+          },
+          getStatus: function () {
+            return user.status;
           },
           getUserName: function () {
             return user.userName;

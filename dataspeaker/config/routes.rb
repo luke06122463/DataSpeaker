@@ -73,6 +73,7 @@ Rails.application.routes.draw do
     get 'users/analyze' => 'users#analyze'
     get 'users/test' => 'users#test'
     get 'users/info' => 'users#info'
+    get 'users/statuses' => 'users#statuses'
     get 'users/result' => 'users#result'
     resources :users do
       member do

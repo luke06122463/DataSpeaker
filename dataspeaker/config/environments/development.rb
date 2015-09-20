@@ -36,16 +36,25 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
-
+  # DataSpeaker account
   WeiboOAuth2::Config.api_key = "374187827"
   WeiboOAuth2::Config.api_secret = "cc5ef80576f7dbf26f9fcc26a67ef966"
+
+  # Test account
+  #WeiboOAuth2::Config.api_key = "1508020719"
+  #WeiboOAuth2::Config.api_secret = "c8c236a23e6a36a714e9400d3992c59e"
   WeiboOAuth2::Config.redirect_uri = "http://10.43.81.136:3000/auth/callback"
 
   Mongo::Logger.level = ::Logger::INFO
 
+  ## v4 is stable version
   DBURL = "127.0.0.1:27017"
-  DBPREFIX = "v3_"
-  DBMASTER = "v3_master"
+  DBPREFIX = "v4_"
+  DBMASTER = "v4_master"
+  #DBURL = "127.0.0.1:27017"
+  #DBPREFIX = "v3_"
+  #DBMASTER = "v3_master"
+
   #momgodb_config_url = "127.0.0.1:27017"
   #momgodb_config_prefix = "v1_"
   #momgodb_config_master = "v1_master"
