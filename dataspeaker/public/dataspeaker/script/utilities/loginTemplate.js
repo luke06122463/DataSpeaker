@@ -89,7 +89,7 @@ angular.module('dataspeaker.login.templates', []).run([
               +'<label class="login-field-icon fui-lock" for="login-pass"></label>'
             +'</div>'
             +'<a class="btn btn-primary btn-large btn-block" href  ng-click="handleLoginBtn()">Login</a>'
-            +'</br><a class="btn btn-primary btn-large btn-block" href="/auth/authorization">Weibo Account</a>'
+            +'</br><a class="btn btn-primary btn-large btn-block" style="margin-top:-15px" href="/auth/authorization">Weibo Account</a>'
           +'</div>'
         +'</div>';
 
